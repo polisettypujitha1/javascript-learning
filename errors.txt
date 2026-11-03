@@ -1,0 +1,109 @@
+# JavaScript Error Notes — Error 001
+
+## Error Name
+TypeError: Assignment to constant variable.
+
+## 1. Code That Caused the Error
+
+```javascript
+const country = "India";
+
+country = "Japan";
+
+console.log(country);
+```
+
+## 2. Error Message
+
+```text
+TypeError: Assignment to constant variable.
+```
+
+## 3. Why Did This Error Occur?
+
+The variable `country` was declared using `const`.
+
+```javascript
+const country = "India";
+```
+
+The `const` keyword declares a variable that cannot be reassigned after its initial value is assigned.
+
+Later, I tried to change its value:
+
+```javascript
+country = "Japan";
+```
+
+JavaScript does not allow this reassignment, so it throws a `TypeError`.
+
+**Important:** The error is not caused by the country names. It happens because I tried to assign a new value to a variable declared with `const`.
+
+## 4. How to Fix the Error
+
+### Solution 1: Use `let` if the value needs to change
+
+```javascript
+let country = "India";
+
+country = "Japan";
+
+console.log(country);
+```
+
+Output:
+
+```text
+Japan
+```
+
+### Solution 2: Keep `const` if the value should not be reassigned
+
+```javascript
+const country = "India";
+
+console.log(country);
+```
+
+Output:
+
+```text
+India
+```
+
+## 5. Difference Between `let` and `const`
+
+- `let`: The variable can be reassigned.
+- `const`: The variable cannot be reassigned after initialization.
+
+Example:
+
+```javascript
+let score = 50;
+score = 80; // Allowed
+
+const age = 22;
+age = 23; // TypeError
+```
+
+## 6. What I Learned
+
+1. `const` variables cannot be reassigned.
+2. Use `let` when a variable needs a new value.
+3. Read the error message carefully to identify the problem.
+4. A `TypeError` can occur when an operation is not allowed for a particular value or situation.
+
+## 7. How to Avoid This Error
+
+Before declaring a variable, ask myself:
+
+- Will I need to assign a different value later? Use `let`.
+- Will I keep the same binding throughout the program? Use `const`.
+
+**Short memory tip:** `let` = reassignment allowed; `const` = reassignment not allowed.
+
+
+
+
+Error 2:
+
